@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block page_title %}My Blog{% endblock %}
+
+{% block css_files %}
+<link rel="stylesheet" href="{% static "/blog/post.css" %}">
+<link rel="stylesheet" href="{% static "/blog/index.css" %}">
+{% endblock  %}
+
+{% block content  %}
+    
+    
+    <section id="welcome">
+        <header>
+            <img src="{% static "blog/images/saad.png" %}" alt="Saad -- The Author of the Blog">
+            <h2>Saad's Blog</h2>
+        </header>
+        <p>Hi I'm Saad and I love to blog about Tech and World</p>
+    </section>
+
+    <section id="latest-posts">
+        <h2>My Latest Thoughts</h2>
+        <ul>
+            {% for post in posts %}
+                {% include "blog/includes/post.html" %}
+            {% endfor %}
+        </ul>
+    </section>
+
+    <section id="about">
+        <h2>What I do</h2>
+        <p>
+            I love programming because it lets me create and solve problems, turning ideas into something real. 
+            Each project is a chance to learn and improve, making it both challenging and rewarding.
+        </p>
+        <p>
+            My goal is to keep learning and growing, pushing myself to improve every day. 
+            I want to stay curious and open to new ideas, always moving forward.
+        </p>
+    </section>
+{% endblock %}
